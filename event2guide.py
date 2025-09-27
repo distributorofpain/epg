@@ -167,7 +167,6 @@ patterns = [
     (r'tvg-name="(?P<cname>(TRILLERTV\s?★\s*(Event)\s?\d*)):?\s*?(?P<ctitle>.*?)?"', parse_event),
     # All other Event Channels that can match a generic statement
     (r'tvg-name="(?P<cname>US\s?★\s?(NFL|MLB|MLS|NCAAB|NCAAF|NBA|NHL GAME|UFC|BOXING|EVENT|DAZN|ESPN\+|PEACOCK EVENT|PEACOCK WWE|UFC|BOXING|EVENT)\s?\d*(?: HD|hd)?)(?::?\s?(.*?)?)(?P<ctitle>.*?)?"', parse_event),
-    #(r'tvg-name="(?P<cname>US\s?★\s?(MLS|PEACOCK WWE|EVENT)\s?\d*(?: HD|hd)?)(?::?\s?(.*?)?)(?P<ctitle>.*?)?"', parse_event),
 ]
 
 def parse_m3u_line(line):
