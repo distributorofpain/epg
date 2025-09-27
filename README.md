@@ -39,4 +39,5 @@ patterns = [
 ]
 ```
 
-NOTE:  See the names are looking for entries that start with "US ★ " ( note spaces do not have to be present ).  So you may need to change this to match what your provider has listed.  There are three main entry types listed above, if you dont have/use those top two, then you can leave them be, they simply wont match.  For the third entry, this is basically the catch all.  You can add or subtract entries here however you like.  This might even be able to be more simplified.  
+NOTE:  See the names are looking for entries that start with "US ★ " ( note spaces do not have to be present ).  So you may need to change this to match what your provider has listed.  There are three main entry types listed above, if you dont have/use those top two, then you can leave them be, they simply wont match.  For the third entry, this is basically the catch all.  You can add or subtract entries here however you like.  This might even be able to be more simplified. 
+NOTE #2: if your provider uses a | or other type of spacer in the name that is not natively supported by regex, it may need to be escaped
