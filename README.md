@@ -6,6 +6,7 @@ Few things to know:
 3. Change the Output file path at the top to point to your docker container files path, if you use ubuntu and snap, you dont have to change it
 4. There is a part near the top to set your timezone.
 5. There is prerequiste at the top for the timezone setting, make sure to install it on your machine first or the script may error.
+6. This assumes all events are 4 hours.  You can edit this in the script ( line 156 or look for "duration_minutes" )
 
 I recommend creating a basic bash script to download the providers m3u file and then run this script.  You can then run the bash script via crontab a few times a day to ensure event channels get updated.
 
