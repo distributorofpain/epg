@@ -4,6 +4,8 @@ Few things to know:
 1. My current provider formats the channels a certain way, so you may need to edit the script to change the channel string or just set it to allow for anything.
 2. Change the Input file path to point to the m3u file you are downloading from your provider ( channel list )
 3. Change the Output file path at the top to point to your docker container files path, if you use ubuntu and snap, you dont have to change it
+4. There is a part near the top to set your timezone.
+5. There is prerequiste at the top for the timezone setting, make sure to install it on your machine first or the script may error.
 
 I recommend creating a basic bash script to download the providers m3u file and then run this script.  You can then run the bash script via crontab a few times a day to ensure event channels get updated.
 
@@ -19,3 +21,19 @@ Crontab ( crontab -e ) entry:
 02 10,15,17 * * * /root/eventepg
    
 Note, i am assuming you are doing everything from the root folder(cause you are lazy like me), otherwise, change the paths to match where you saved it.
+
+
+*** VERY IMPORTANT ***
+Channel names vary by provider, so you may need to edit this part
+
+"
+# Define a list of regex patterns and their corresponding handler functions
+patterns = [
+    # Specific Event Channels that dont match the generic chain below due to provider being dumb
+    (r'tvg-name="(?P<cname>(MiLB\s?TV\s?★\s?(EVENT)\s?\d*)):?\s*?(?P<ctitle>.*?)?"', parse_event),
+    (r'tvg-name="(?P<cname>(TRILLERTV\s?★\s*(Event)\s?\d*)):?\s*?(?P<ctitle>.*?)?"', parse_event),
+    # All other Event Channels that can match a generic statement
+    (r'tvg-name="(?P<cname>US\s?★\s?(NFL|MLB|MLS|NCAAB|NCAAF|NBA|NHL GAME|UFC|BOXING|EVENT|DAZN|ESPN\+|PEACOCK EVENT|PEACOCK WWE|UFC|BOXING|EVENT)\s?\d*(?: HD|hd)?)(?::?\s?(.*?)?)(?P<ctitle>.*?)?"', parse_event),
+]
+"
+NOTE:  See the names are looking for entries that start with "US ★ " ( note spaces do not have to be present ).  So you may need to change this to match what your provider has listed.  There are three main entry types listed above, if you dont have/use those top two, then you can leave them be, they simply wont match.  For the third entry, this is basically the catch all.  You can add or subtract entries here however you like.  This might even be able to be more simplified.  
