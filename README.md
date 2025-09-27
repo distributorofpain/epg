@@ -26,7 +26,6 @@ Note, i am assuming you are doing everything from the root folder(cause you are 
 *** VERY IMPORTANT ***
 Channel names vary by provider, so you may need to edit this part
 
-"
 # Define a list of regex patterns and their corresponding handler functions
 patterns = [
     # Specific Event Channels that dont match the generic chain below due to provider being dumb
@@ -35,5 +34,5 @@ patterns = [
     # All other Event Channels that can match a generic statement
     (r'tvg-name="(?P<cname>US\s?★\s?(NFL|MLB|MLS|NCAAB|NCAAF|NBA|NHL GAME|UFC|BOXING|EVENT|DAZN|ESPN\+|PEACOCK EVENT|PEACOCK WWE|UFC|BOXING|EVENT)\s?\d*(?: HD|hd)?)(?::?\s?(.*?)?)(?P<ctitle>.*?)?"', parse_event),
 ]
-"
+
 NOTE:  See the names are looking for entries that start with "US ★ " ( note spaces do not have to be present ).  So you may need to change this to match what your provider has listed.  There are three main entry types listed above, if you dont have/use those top two, then you can leave them be, they simply wont match.  For the third entry, this is basically the catch all.  You can add or subtract entries here however you like.  This might even be able to be more simplified.  
