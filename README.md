@@ -12,11 +12,12 @@ Few things to know:
 I recommend creating a basic bash script to download the providers m3u file and then run this script.  You can then run the bash script via crontab a few times a day to ensure event channels get updated.
 
 Simple Bash script(Note i created a sub folder under root called epg for processing)( Command to create file: nano eventepg ):
+```
 #!/bin/sh
 cd /root/epg/
 wget --user-agent=Mozilla --max-redirect=20 --trust-server-names -O providerm3ufile.m3u "<fullproviderURLform3ufilehere>"
 /root/event2guide.py
-
+```
 Save the file ( as eventepg ) and make it executable ( chmod +x eventepg )
 
 Crontab ( crontab -e ) entry:
