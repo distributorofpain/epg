@@ -21,8 +21,9 @@ wget --user-agent=Mozilla --max-redirect=20 --trust-server-names -O providerm3uf
 Save the file ( as eventepg ) and make it executable ( chmod +x eventepg )
 
 Crontab ( crontab -e ) entry:
+```
 02 10,15,17 * * * /root/eventepg
-   
+```   
 Note, i am assuming you are doing everything from the root folder(cause you are lazy like me), otherwise, change the paths to match where you saved it.
 
 
